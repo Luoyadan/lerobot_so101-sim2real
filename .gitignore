@@ -1,0 +1,19 @@
+# python related
+__pycache__/
+*.egg-info/
+
+# lerobot
+
+.cache/
+calibration/
+
+# other
+videos/
+.vscode/
+.DS_Store
+
+
+wandb/
+runs/
+outputs/
+checkpoints/
