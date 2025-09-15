@@ -14,7 +14,7 @@ Note that this project is still in a very early stage. There are many ways the s
 Install this repo by running the following
 ```bash
 conda create -n lerobot "python==3.11" # 3.11 is recommended
-git clone https://github.com/Luoyadan/so101-sim2real.git
+git clone https://github.com/Luoyadan/lerobot_so101-sim2real.git
 cd lerobot && pip install -e . # this tutorial is using lerobot 0.3.4 (Sep 2025)
 cd ../ManiSkill && pip install -e . # mani_skill 3.0.0b21
 cd .. && pip install -e . # install sim2real
@@ -59,10 +59,8 @@ To make modifications you can just edit the "base_camera_settings"."pos" value i
 python lerobot_sim2real/scripts/record_reset_distribution.py --env-id="SO101GraspCube-v1" --env-kwargs-json-path=env_config.json
 ```
 
-<video controls width="640">
-  <source src="./docs/assets/SO101GraspCube-v1_reset_distribution.mp4" type="video/mp4">
-  Sorry, your browser doesn't support embedded videos.
-</video>
+![Demo](docs/assets/SO101GraspCube-v1_reset_distribution.mp4)
+
 
 You can also modify where the camera is pointing at in case it can't see the robot or enough of the workspace in simulation. Simply modify "base_camera_settings"."target" value accordingly, which is the 3D point the camera points at. Finally you can also modify the mean position cubes are spawned at as well as how large of a square area they are randomized in in the config file.
 
@@ -100,7 +98,7 @@ Two examples are shown below, both of which after RL training worked out fine an
 > [!NOTE]
 > Based on testing from the community, alignment that looks worse than the ones here will struggle a lot more to work during sim2real transfer. We recommend using a camera stand with multiple degrees of freedom in different axes and using your hand to slowly move the camera around until it lines up well. This does take some practice but once you get the hang of it it becomes much easier to do. It is possible to permit even more calibration error but will require more advanced techniques and modifications to training that we leave as open research problems.
 
-![](./assets/camera_alignment_step_1.2.png)
+![](./docs/assets/camera_alignment_step_1.2.png)
 
 
 ## 1.3: Get an image for greenscreening to bridge the sim2real visual gap 
@@ -145,14 +143,11 @@ This will train an agent via RL/PPO and track its training progress on Weights a
 
 While training you can check out the eval videos which by default look like the following 4x4 grid showing 16 parallel environments:
 
-<video controls width="640">
-  <source src="./docs/assets/116.mp4" type="video/mp4">
-  Sorry, your browser doesn't support embedded videos.
-</video>
+![Demo](docs/assets/SO101GraspCube-v1_reset_distribution.mp4)
 
 Moreover, for this environment the evaluation result curves may look approximately like this during training.
 
-![](./assets/eval_return_success_curves.png)
+
 
 
 
